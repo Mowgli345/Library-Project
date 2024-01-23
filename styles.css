@@ -13,11 +13,19 @@ body {
     padding: 0px 100px;
  }
 
+ .books {
+   display: flex;
+   flex-direction: row;
+   gap:10px;
+   flex-wrap: wrap;
+   flex:0;
+ }
+
  .books-card {
     border: 2px solid gainsboro;
     border-radius: 4px;
-    width: 200px;
-    height: 400px;
+    width: 250px;
+    min-height: 400px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -32,26 +40,98 @@ body {
     justify-content: center;
     align-items: flex-start;
     text-align: center;
-    padding-top: 5px;
-    width:60%;
-    height:100px;
+    padding-top: 15px;
+    padding: 15px 8px;
+    width:75%;
+    height:250px;
+    font-size:1.8rem;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    background-color: rgb(90, 151, 82);
  }
 
  .info {
-    width: 85%;
+    width: 95%;
     margin-top:20px;
+    padding-top: 8px;
     border-top:1px solid gainsboro;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-content: flex-start;
-    outline: dotted red .5px;
+    align-content: flex-start;   
  }
 
  .info-line {
     display: flex;
+    align-items: flex-start;
+    min-height: 2rem;
+    line-height: 1.8rem;
  }
 
  .info-title {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    min-width: 69px;
  }
+
+ .info-title::first-letter {
+   font-size: 1.3rem;
+   letter-spacing:-.03rem ;
+ }
+
+ .info-data {
+   font-size: 1.1rem;
+ }
+
+ #addBookDialog {
+   border:none;
+   padding:60px 50px 80px 40px;
+   border-radius: 8px;
+ }
+
+ #addBook {
+   background-color: #F6F7F8;
+   border: solid 1px #D6D9DC;
+   border-radius: 3px;
+   width:360px;
+   padding:40px 50px 10px 30px;
+   margin:40px auto;
+   font-size: 1.2rem;
+   display: none;
+ }
+
+ .form-row {
+   margin-bottom: 40px;
+   display: flex;
+   justify-content: flex-start;
+   align-content: center;
+   flex-direction: row;
+   flex-wrap: wrap;
+}
+
+label {
+   width:60px;
+}
+
+input {
+   height:1.5rem;
+   font-size: 1.1rem;
+   padding: .2rem;
+   margin-left: 12px;
+   flex:1;
+}
+button {
+   padding: 6px 12px;
+   font-size:1.2rem;
+   display: flex;
+   color: rgb(65, 63, 63);
+}
+
+#newBookButton {
+   margin-left: auto;
+}
+
+#submit-button{
+   margin-left: auto;
+   margin-right: auto;
+}
