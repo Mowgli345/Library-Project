@@ -26,6 +26,7 @@ function createNewBookObj(event){
     myFormData.forEach((value, key) => (newBook[key]=value));
     addBookToLibrary(newBook);  
     createBook(newBook);
+    addForm.reset();
 };
 
 //Add new book object to array
@@ -59,6 +60,9 @@ function createBook(newBook) {
     const newInfoDataPages = document.createElement("div");
     const newInfoTitleRead = document.createElement("div");
     const newInfoDataRead = document.createElement("div");
+    const infoFooter = document.createElement("div");
+    const readButton = document.createElement("button");
+    const newTrashImg = document.createElement("img");
 
     newCard.className="books-card";
     newTitle.className="books-title";
@@ -68,6 +72,7 @@ function createBook(newBook) {
     newInfoLine2.className="info-line line2";
     newInfoLine3.className="info-line line3";
     newInfoLine4.className="info-line line4";
+    infoFooter.className="info-foooter ";
 
     newInfoTitleTitle.className="info-title title-title";
     newInfoDataTitle.className="info-data data-title";
@@ -77,6 +82,8 @@ function createBook(newBook) {
     newInfoDataPages.className="info-data data-pages";
     newInfoTitleRead.className="info-title title-read";
     newInfoDataRead.className="info-data data-read";
+    newTrashImg.className="trash-img";
+    readButton.className="read-btn";
 
     newTitle.textContent=newBook.title;
     newInfoTitleTitle.textContent="Title:";
@@ -87,6 +94,10 @@ function createBook(newBook) {
     newInfoDataPages.textContent=newBook.pages;
     newInfoTitleRead.textContent="Read:";
     newInfoDataRead.textContent=newBook.read;
+    readButton.textContent="Read";
+    newTrashImg.src="delete.svg";
+    newTrashImg.alt = "Remove";
+    
 
         allBooks.appendChild(newCard);
         newCard.appendChild(newTitle);
@@ -107,4 +118,10 @@ function createBook(newBook) {
         newInfo.appendChild(newInfoLine4);
         newInfoLine4.appendChild(newInfoTitleRead);
         newInfoLine4.appendChild(newInfoDataRead);
+
+        newInfo.appendChild(infoFooter);
+        infoFooter.appendChild(readButton);
+        infoFooter.appendChild(newTrashImg);
 }
+
+//1/24 - Add Read and Delete buttons - no functionality yet

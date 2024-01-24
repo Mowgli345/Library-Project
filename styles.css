@@ -83,6 +83,23 @@ body {
    font-size: 1.1rem;
  }
 
+ .info-foooter {
+   margin-top: 9px;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+ }
+
+ .trash {
+
+ }
+
+ .trash-img {
+   width:30px;
+   height: auto;
+   color:#979a9c;
+ }
+
  #addBookDialog {
    border:none;
    padding:60px 50px 80px 40px;
@@ -123,6 +140,13 @@ input {
 button {
    padding: 6px 12px;
    font-size:1.2rem;
+   display: flex;
+   color: rgb(65, 63, 63);
+}
+
+.read-btn {
+   padding: 4px 8px;
+   font-size:1rem;
    display: flex;
    color: rgb(65, 63, 63);
 }
