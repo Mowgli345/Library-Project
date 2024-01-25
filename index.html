@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comme:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Comme:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="styles.css">
     <title>JS Library</title>
 </head>
@@ -27,9 +27,10 @@
 </dialog>
 
 <button id="newBookButton">Add +</button>
+<button id="deletePractice">Delete Practice</button>
 
 <div class="books">
-    <div class="books-card">
+    <div class="books-card" data-item = "0">
         <div class="books-title">The Lion, The Witch and the Wardrobe</div>
         <div class="info">
             <div class="info-line">
@@ -50,7 +51,7 @@
             </div>
             <div class="info-foooter">
                 <button class="read-btn">Read</button>
-                <img class = "trash-img" src="delete.svg" alt="Remove">
+                <img class = "del-btn" src="delete.svg" alt="Remove">
             </div>
         </div>
     </div>

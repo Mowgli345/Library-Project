@@ -3,6 +3,10 @@ const addBtn = document.querySelector("#newBookButton");
 const addForm = document.querySelector("#addBookForm");
 const allBooks = document.querySelector(".books");
 const addDialog = document.querySelector("#addBookDialog");
+const deleteBtn = document.querySelectorAll(".del-btn");
+
+const pracDeleteButton = document.querySelector("#deletePractice"); ///CAN BE USED FOR OTHER FUNCTIONALITY PRACTICE
+
 
 //New Book object constructor
 function Book (title, author, pages, read) {
@@ -45,6 +49,8 @@ addBtn.addEventListener("click",(e)=>{
 
 //Create new book
 function createBook(newBook) {
+    let i = myLibrary.length-1;  //Assigns data-item number for array
+
     const newCard = document.createElement("div");
     const newTitle = document.createElement("div");
     const newInfo = document.createElement("div");
@@ -65,6 +71,7 @@ function createBook(newBook) {
     const newTrashImg = document.createElement("img");
 
     newCard.className="books-card";
+    newCard.setAttribute("data-item", i);
     newTitle.className="books-title";
     newInfo.className="info";
 
@@ -82,7 +89,7 @@ function createBook(newBook) {
     newInfoDataPages.className="info-data data-pages";
     newInfoTitleRead.className="info-title title-read";
     newInfoDataRead.className="info-data data-read";
-    newTrashImg.className="trash-img";
+    newTrashImg.className="del-btn";
     readButton.className="read-btn";
 
     newTitle.textContent=newBook.title;
@@ -124,4 +131,14 @@ function createBook(newBook) {
         infoFooter.appendChild(newTrashImg);
 }
 
-//1/24 - Add Read and Delete buttons - no functionality yet
+//Delete Book  - delete. method leaves empty spave in array. Need to change this. Cycle through HTML book-card items?
+allBooks.addEventListener("click",(e)=> {
+    const deleteBook = e.target.parentElement.parentElement.parentElement;
+
+    if (e.target.className=="del-btn") {
+        let itemNum = deleteBook.dataset.item;
+        deleteBook.parentElement.removeChild(deleteBook);
+        delete(myLibrary[itemNum]);
+    } }   )   ;
+
+
