@@ -1,25 +1,28 @@
+//All functions ready. Just need to add readToggle to Book prototype
+
 const myLibrary = [];
 const addBtn = document.querySelector("#newBookButton");
 const addForm = document.querySelector("#addBookForm");
 const allBooks = document.querySelector(".books");
 const addDialog = document.querySelector("#addBookDialog");
 const deleteBtn = document.querySelectorAll(".del-btn");
+const readBtn = document.querySelectorAll("read-btn");
 
 const pracDeleteButton = document.querySelector("#deletePractice"); ///CAN BE USED FOR OTHER FUNCTIONALITY PRACTICE
 
 
 //New Book object constructor
-function Book (title, author, pages, read) {
+function Book (title, author, pages, read,item) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
+    this.read = read; 
+    this.item = item;
     this.info = function() {
         let bookInfo = (`${title} by ${author}, ${pages} pages, ${read}`);
-        console.log(bookInfo);
         return bookInfo;
-    }
-};
+        }
+    };
 
 //Create new Book object
 function createNewBookObj(event){
@@ -27,6 +30,10 @@ function createNewBookObj(event){
     addDialog.close();
     const myFormData = new FormData(event.target);
     const newBook = new Book();
+
+//Here is where info is added to object
+    Object.assign(Book.prototype,newBook);
+    newBook.item = myLibrary.length; 
     myFormData.forEach((value, key) => (newBook[key]=value));
     addBookToLibrary(newBook);  
     createBook(newBook);
@@ -49,7 +56,7 @@ addBtn.addEventListener("click",(e)=>{
 
 //Create new book
 function createBook(newBook) {
-    let i = myLibrary.length-1;  //Assigns data-item number for array
+    let x = myLibrary.length-1;  //Assigns data-item number for array
 
     const newCard = document.createElement("div");
     const newTitle = document.createElement("div");
@@ -71,7 +78,7 @@ function createBook(newBook) {
     const newTrashImg = document.createElement("img");
 
     newCard.className="books-card";
-    newCard.setAttribute("data-item", i);
+    newCard.setAttribute("data-item", x);
     newTitle.className="books-title";
     newInfo.className="info";
 
@@ -101,11 +108,17 @@ function createBook(newBook) {
     newInfoDataPages.textContent=newBook.pages;
     newInfoTitleRead.textContent="Read:";
     newInfoDataRead.textContent=newBook.read;
-    readButton.textContent="Read";
+
+    if(newBook.read=="Read") {
+        readButton.textContent="Not read yet";
+    }
+    else {
+        readButton.textContent="Read"; 
+    }
+
     newTrashImg.src="delete.svg";
     newTrashImg.alt = "Remove";
     
-
         allBooks.appendChild(newCard);
         newCard.appendChild(newTitle);
         newCard.appendChild(newInfo);
@@ -129,16 +142,42 @@ function createBook(newBook) {
         newInfo.appendChild(infoFooter);
         infoFooter.appendChild(readButton);
         infoFooter.appendChild(newTrashImg);
-}
+    }
 
-//Delete Book  - delete. method leaves empty spave in array. Need to change this. Cycle through HTML book-card items?
-allBooks.addEventListener("click",(e)=> {
-    const deleteBook = e.target.parentElement.parentElement.parentElement;
-
+// Event listener to call either Delete or ReadToggle
+allBooks.addEventListener("click",(e)=> {    
     if (e.target.className=="del-btn") {
-        let itemNum = deleteBook.dataset.item;
+        deleteThisBook(e);
+    }
+    else if (e.target.className=="read-btn") {
+        readToggle(e);
+    }
+    }   )   ;
+
+//Delete book function
+function deleteThisBook(e) {
+    const deleteBook = e.target.parentElement.parentElement.parentElement;
+    let itemNum = deleteBook.dataset.item;
         deleteBook.parentElement.removeChild(deleteBook);
         delete(myLibrary[itemNum]);
-    } }   )   ;
+}
 
+//ReadToggle function
+function readToggle (e) {
+    const readBook = e.target.parentElement.parentElement.parentElement;      
+    let itemNum = readBook.dataset.item;
+    const thisBook = myLibrary[itemNum];
+    let thisReadBtn = e.target;
+    let thisReadDisplay = readBook.querySelector(".data-read");
 
+    if (thisBook.read == "Read") {
+        thisBook.read = "Not read yet";
+        thisReadBtn.textContent="Read";
+        thisReadDisplay.textContent="Not read yet";
+    }
+    else {
+        thisBook.read = "Read";
+        thisReadBtn.textContent="Not read yet";
+        thisReadDisplay.textContent="Read";
+    }
+}

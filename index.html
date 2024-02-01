@@ -20,9 +20,20 @@
         <input type="text" id="author" name="author" value="Fyodor Dostoevesky"></div>
         <div class="form-row"><label for="pages">Pages:</label>
         <input type="text" id="pages" name="pages" value = "697"></div>
-        <div class="form-row"><label for="read">Read:</label>
-        <input type="text" id="read" name="read" value="Not read yet"></div>
+
+        <div class="form-row radio-row">
+            <div>
+            <input type="radio" id="read" name="read" value="Read">
+                <label for="read">Read</label>
+            </div>
+        <div>
+            <input type="radio" id="not-read-yet" name="read" value="Not read yet">
+                <label for="not-read-yet">Not read yet</label>
+            </div>
+        </div>
         <div class="button"><button id="submit-button" type="submit">Enter</button></div>
+
+    </form>
     </form>
 </dialog>
 
@@ -30,7 +41,7 @@
 <button id="deletePractice">Delete Practice</button>
 
 <div class="books">
-    <div class="books-card" data-item = "0">
+    <!-- <div class="books-card" data-item = "0">
         <div class="books-title">The Lion, The Witch and the Wardrobe</div>
         <div class="info">
             <div class="info-line">
@@ -54,7 +65,7 @@
                 <img class = "del-btn" src="delete.svg" alt="Remove">
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 
 
