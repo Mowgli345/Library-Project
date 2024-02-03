@@ -1,56 +1,90 @@
 html, body {
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
     box-sizing: border-box;
-}
-
-body {
     font-family: 'Poppins', sans-serif;
     font-size: 100%;
     color: rgb(119, 119, 119);
+    background-image: linear-gradient(180deg,rgb(245, 245, 245),white);
+
+    --color-border-gray: #979a9c;
+    --color-hover-purple: #6c35a0;
+}
+
+body {
     padding: 0px 100px;
  }
 
+ header {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   gap:10px;
+   align-items: center;
+ }
+ h1 {
+   text-align: center;
+   font-size: 2.5rem;
+ }
+ header img {
+   width:60px;
+   height: auto;
+ }
+
+ .add-btn-div {
+   text-align: center;
+ }
+ #newBookButton {
+   margin-left: auto;
+   margin-right: auto;
+}
+
+ /* Buttons */
+ button {
+   padding: 6px 12px;
+   font-size:1.2rem;
+   color:#535353;
+   text-align: center;
+   border:1px solid var(--color-border-gray);
+}
+button:hover {
+   border:1.5px solid var(--color-hover-purple);
+}
+/* Books Card */
  .books {
    display: flex;
    flex-direction: row;
-   gap:10px;
+   justify-content: flex-start;
+   gap:20px 10px;
    flex-wrap: wrap;
    flex:0;
+   margin-top: 20px;
  }
-
  .books-card {
     border: 2px solid gainsboro;
     border-radius: 4px;
-    width: 250px;
+    width: 240px;
     min-height: 400px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    /* padding-top:12px; */
     padding:12px;
     flex-direction: column;
  }
-
  .books-title {
     border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     text-align: center;
-    padding-top: 15px;
-    padding: 15px 8px;
+    padding: 15px 9px;
     width:75%;
     height:250px;
-    font-size:1.8rem;
+    font-size:1.7rem;
     font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
     color: black;
-    background-color: rgb(90, 151, 82);
+    background-color:#8b5cf6
  }
-
  .info {
     width: 95%;
     margin-top:20px;
@@ -61,59 +95,65 @@ body {
     justify-content: flex-start;
     align-content: flex-start;   
  }
-
  .info-line {
     display: flex;
     align-items: flex-start;
     min-height: 2rem;
     line-height: 1.8rem;
  }
-
  .info-title {
     font-size: 1.15rem;
     min-width: 69px;
  }
-
  .info-title::first-letter {
    font-size: 1.3rem;
    letter-spacing:-.03rem ;
  }
-
  .info-data {
    font-size: 1.1rem;
  }
-
  .info-foooter {
    margin-top: 9px;
    display: flex;
    flex-direction: row;
    justify-content: space-between;
  }
-
+ .read-btn {
+   padding: 4px 8px;
+   font-size:1rem;
+   width:110px;  
+}
  .del-btn {
    width:30px;
    height: auto;
-   color:#979a9c;
+   filter: invert(40%) sepia(1%) saturate(1069%) hue-rotate(161deg) brightness(100%) contrast(88%);
+ }
+ .del-btn:hover {
+   filter: invert(24%) sepia(22%) saturate(4610%) hue-rotate(249deg) brightness(96%) contrast(94%);
  }
 
+ /* Add New Book Form */
  #addBookDialog {
    border:none;
-   padding:60px 50px 80px 40px;
+   /* padding:30px 50px 60px 40px; */
    border-radius: 8px;
+   padding:20px 30px 30px 20px;
  }
-
+ form {
+   margin: 20px 0px;
+   width:350px;
+   color: rgb(119, 119, 119);
+}
  #addBook {
    background-color: #F6F7F8;
    border: solid 1px #D6D9DC;
    border-radius: 3px;
-   width:360px;
+   width:340px;
    padding:40px 50px 10px 30px;
    margin:40px auto;
    font-size: 1.2rem;
    display: none;
-   /* background-color: yellow; */
  }
-
  .form-row {
    line-height: 2.2rem;
    margin-bottom: 40px;
@@ -121,88 +161,52 @@ body {
    justify-content: flex-start;
    flex-direction: row;
    flex-wrap: wrap;
-   /* outline: darkviolet dotted .4px; */
 }
-
 label {
    width:60px;
 }
-
 input {
    height:1.5rem;
    font-size: 1.1rem;
    padding: .2rem;
-   margin-left: 12px;
+   margin-left: 4px;
    flex:1;
 }
-
-button {
-   padding: 6px 12px;
-   font-size:1.2rem;
-   display: flex;
-   color: rgb(65, 63, 63);
+.form-row input {
+   border:1px solid var(--color-border-gray);
+   color:#444444;
 }
-
-.read-btn {
-   padding: 4px 8px;
-   font-size:1rem;
-   display: flex;
-   color: rgb(65, 63, 63);
+.form-row input[type="text"]:focus {
+   outline:none;
+   border:2px solid var(--color-hover-purple);
 }
-
-#newBookButton {
-   margin-left: auto;
-}
-
-#submit-button{
-   margin-left: auto;
-   margin-right: auto;
-}
-
-
-/* FORM EDITS HERE */
-
-form {
-   border: black dotted .8px;
-   margin: 30px 0px;
-   width:400px;
-}
-
 .radio-row {
-   /* outline: dotted red .4px; */
    display: flex;
    justify-content: center;
    gap:70px;
    line-height: 2rem; 
 }
-
-.radio-row div {
-   /* outline:green solid .8px; */
-   /* display: flex; */
-}
-
 .radio-row label {
    margin-left:2px;
-   /* line-height: 2rem; */
 }
-
 .radio-row input {
    position: relative;
    top:9px;
-}
-
-/* TRY INPUT FORMATTING */
-.radio-row input {
-appearance: none;
-width:30px;
-height:30px;
-border:4px solid #979a9c;
-padding:0;
-}
-
+   appearance: none;
+   width:30px;
+   height:30px;
+   border:4px solid var(--color-border-gray);
+   padding:0;
+   }
 .radio-row input:checked {  
-	background: url(checkbox-outline.svg);
-	background-repeat: no-repeat;
-	background-position:center center;
-	background-size:40px 40px;
+   background-image: url(check.svg),url(checkbox-blank-outline.svg);
+   background-repeat: no-repeat;
+   background-position:center center;
+   background-size:30px 30px, 40px 40px;
+}
+
+#submit-button{
+   margin-left: 35px;
+   font-size: 1rem;
+
 }
