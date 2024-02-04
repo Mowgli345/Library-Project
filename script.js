@@ -1,5 +1,3 @@
-//All functions ready. Just need to add readToggle to Book prototype
-
 const myLibrary = [];
 const addBtn = document.querySelector("#newBookButton");
 const addForm = document.querySelector("#addBookForm");
@@ -8,9 +6,6 @@ const addDialog = document.querySelector("#addBookDialog");
 const deleteBtn = document.querySelectorAll(".del-btn");
 const readBtn = document.querySelectorAll("read-btn");
 
-const pracDeleteButton = document.querySelector("#deletePractice"); ///CAN BE USED FOR OTHER FUNCTIONALITY PRACTICE
-
-
 //New Book object constructor
 function Book (title, author, pages, read,item) {
     this.title = title;
@@ -18,10 +13,6 @@ function Book (title, author, pages, read,item) {
     this.pages = pages;
     this.read = read; 
     this.item = item;
-    this.info = function() {
-        let bookInfo = (`${title} by ${author}, ${pages} pages, ${read}`);
-        return bookInfo;
-        }
     };
 
 //Create new Book object
@@ -31,7 +22,7 @@ function createNewBookObj(event){
     const myFormData = new FormData(event.target);
     const newBook = new Book();
 
-//Here is where info is added to object
+//Add Book info to object
     Object.assign(Book.prototype,newBook);
     newBook.item = myLibrary.length; 
     myFormData.forEach((value, key) => (newBook[key]=value));
@@ -59,7 +50,9 @@ function createBook(newBook) {
     let x = myLibrary.length-1;  //Assigns data-item number for array
 
     const newCard = document.createElement("div");
+    const newBookCover = document.createElement("div");    
     const newTitle = document.createElement("div");
+
     const newInfo = document.createElement("div");
     const newInfoLine1 = document.createElement("div");
     const newInfoLine2 = document.createElement("div");
@@ -79,7 +72,8 @@ function createBook(newBook) {
 
     newCard.className="books-card";
     newCard.setAttribute("data-item", x);
-    newTitle.className="books-title";
+    newBookCover.className="book-cover";
+    newTitle.className="book-cover-title";
     newInfo.className="info";
 
     newInfoLine1.className="info-line line1";
@@ -120,7 +114,9 @@ function createBook(newBook) {
     newTrashImg.alt = "Remove";
     
         allBooks.appendChild(newCard);
-        newCard.appendChild(newTitle);
+        newCard.appendChild(newBookCover);
+        newBookCover.appendChild(newTitle);
+
         newCard.appendChild(newInfo);
 
         newInfo.appendChild(newInfoLine1);
@@ -139,7 +135,7 @@ function createBook(newBook) {
         newInfoLine4.appendChild(newInfoTitleRead);
         newInfoLine4.appendChild(newInfoDataRead);
 
-        newInfo.appendChild(infoFooter);
+        newCard.appendChild(infoFooter);
         infoFooter.appendChild(readButton);
         infoFooter.appendChild(newTrashImg);
     }

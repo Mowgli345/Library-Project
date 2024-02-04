@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>My Odin Library</title>
-    <link rel="icon" type="image/x-icon" href="books2-img.png">
+    <link rel="icon" type="image/x-icon" href="books-img.png">
 </head>
 <body>
 
 <header>
-    <h1>My Odin Library</h1><img src="books2-img.png" alt="">
+    <h1>My Odin Library</h1><img src="books-img.png" alt="">
 </header>
 
 <div class="add-btn-div">
@@ -18,43 +18,19 @@
 </div>
 
 <div class="books">
-    <div class="books-card" data-item = "0">
-        <div class="books-title">The Lion, The Witch and the Wardrobe</div>
-        <div class="info">
-            <div class="info-line">
-                <div class="info-title title-title">Title:</div>
-                <div class="info-data data-title">The Lion, The Witch and the Wardrobe</div>
-            </div>
-            <div class="info-line">
-                <div class="info-title title-author">Author:</div>
-                <div class="info-data data-author">Fyodor Dostoevesky</div>
-            </div>
-            <div class="info-line">
-                <div class="info-title title-pages">Pages:</div>
-                <div class="info-data data-pages">295</div>
-            </div>
-            <div class="info-line">
-                <div class="info-title title-read">Read:</div>
-                <div class="info-data data-read">Not read yet</div>
-            </div>
-            <div class="info-foooter">
-                <button class="read-btn">Read</button>
-                <img class = "del-btn filter-grey" src="delete.svg" alt="Remove">
-            </div>
-        </div>
-    </div>
+<div class="book"></div>
 </div>
 
 <dialog id="addBookDialog">
     <form id="addBookForm" method="dialog">
         <div class="form-row"><label for="title">Title:</label>
-            <input type="text" id="title" required="true" name="title" value="Crime and Punishment">
+            <input type="text" id="title" required="true" name="title">
         </div>
         <div class="form-row"><label for="author">Author:</label>
-            <input type="text" id="author" required="true" name="author" value="Fyodor Dostoevesky">
+            <input type="text" id="author" required="true" name="author">
         </div>
         <div class="form-row"><label for="pages">Pages:</label>
-            <input pattern="[0-9]+" id="pages" required="true" name="pages" value = "697">
+            <input type="text" pattern="[0-9]+" id="pages" required="true" name="pages">
         </div>
 
         <div class="form-row radio-row">

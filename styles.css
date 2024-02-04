@@ -1,57 +1,61 @@
 html, body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    font-size: 100%;
-    color: rgb(119, 119, 119);
-    background-image: linear-gradient(180deg,rgb(245, 245, 245),white);
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   width: 100%;
+   min-height: 100%;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 100%;
+   color: rgb(119, 119, 119);
 
-    --color-border-gray: #979a9c;
-    --color-hover-purple: #6c35a0;
+   --color-border-gray: #979a9c;
+   --color-hover-purple: #6c35a0;
 }
 
 body {
-    padding: 0px 100px;
+   padding: 0px 100px;
+   background-image: linear-gradient(180deg,rgb(245, 245, 245),white);
  }
 
- header {
+header {
    display: flex;
    flex-direction: row;
    justify-content: center;
    gap:10px;
    align-items: center;
  }
- h1 {
+h1 {
    text-align: center;
    font-size: 2.5rem;
  }
- header img {
+header img {
    width:60px;
    height: auto;
  }
 
- .add-btn-div {
+.add-btn-div {
    text-align: center;
  }
- #newBookButton {
+#newBookButton {
    margin-left: auto;
    margin-right: auto;
 }
 
- /* Buttons */
- button {
+/* Buttons */
+button {
    padding: 6px 12px;
    font-size:1.2rem;
    color:#535353;
    text-align: center;
    border:1px solid var(--color-border-gray);
 }
-button:hover {
+button:hover,
+button:focus {
    border:1.5px solid var(--color-hover-purple);
+   outline: none;
 }
 /* Books Card */
- .books {
+.books {
    display: flex;
    flex-direction: row;
    justify-content: flex-start;
@@ -60,50 +64,78 @@ button:hover {
    flex:0;
    margin-top: 20px;
  }
- .books-card {
-    border: 2px solid gainsboro;
-    border-radius: 4px;
-    width: 240px;
-    min-height: 400px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding:12px;
-    flex-direction: column;
+.books-card {
+   border: 2px solid gainsboro;
+   border-radius: 4px;
+   width: 240px;
+   min-height: 400px;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   flex-direction: column;
+   padding:12px;
  }
- .books-title {
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: center;
-    padding: 15px 9px;
-    width:75%;
-    height:250px;
-    font-size:1.7rem;
-    font-weight: bold;
-    color: black;
-    background-color:#8b5cf6
- }
+.book-cover{
+  width:180px;
+  height:250px;
+  background: #8b5cf6;
+  border-radius: 20px 16px 12px 22px;
+  background-image: linear-gradient(to right,#6a45bf 28px, #543896 30px, transparent 30px);  
+  position:relative;
+}
+.book-cover:after{
+  content:"";
+  position: absolute;
+  height: 25px;
+  width: 175px; 
+  bottom: 5px;
+  right:0px;
+  background: white;
+  /* border-radius: 22px 4px 4px 22px; */
+  border-radius: 22px 0px 8px 22px;
+  box-shadow: inset 4px 6px 0px 0px #E4E0CE;  
+  background-image: linear-gradient(to bottom, transparent 6px, #E4E0CE 8px, transparent 8px, transparent 12px, #E4E0CE 12px, transparent 14px, transparent 18px,#E4E0CE 18px, transparent 20px, transparent 24px, #E4E0CE 24px, transparent 26px, transparent 30px, #E4E0CE 30px, transparent 32px, transparent 36px, #E4E0CE 36px, transparent 38px, transparent 42px, #E4E0CE 42px, transparent 44px, transparent 48px, #E4E0CE 48px, transparent 50px);     
+}
+.book-cover:before{
+  content:"";
+  position: absolute;
+  height: 12px;
+  width: 105px; 
+  right: 30px;
+  top: 22px; 
+  background:#7148cf;
+  border-radius: 20px;
+}
+.book-cover-title {
+   margin-left: 35px;
+   margin-right: 5px;
+   margin-top:40px ;
+   font-size:1.4rem;
+   font-weight: bold;
+   color: black;
+   text-align: center;
+      }
+
  .info {
-    width: 95%;
-    margin-top:20px;
-    padding-top: 8px;
-    border-top:1px solid gainsboro;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-content: flex-start;   
+   width: 95%;
+   margin-top:20px;
+   padding-top: 8px;
+   border-top:1px solid gainsboro;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-content: flex-start;   
+   margin-bottom: 8px;
  }
  .info-line {
-    display: flex;
-    align-items: flex-start;
-    min-height: 2rem;
-    line-height: 1.8rem;
+   display: flex;
+   align-items: flex-start;
+   min-height: 2rem;
+   line-height: 1.8rem;
  }
  .info-title {
-    font-size: 1.15rem;
-    min-width: 69px;
+   font-size: 1.15rem;
+   min-width: 75px;
  }
  .info-title::first-letter {
    font-size: 1.3rem;
@@ -113,10 +145,11 @@ button:hover {
    font-size: 1.1rem;
  }
  .info-foooter {
-   margin-top: 9px;
    display: flex;
    flex-direction: row;
    justify-content: space-between;
+   width:100%;
+   margin-top: auto;
  }
  .read-btn {
    padding: 4px 8px;
@@ -135,7 +168,6 @@ button:hover {
  /* Add New Book Form */
  #addBookDialog {
    border:none;
-   /* padding:30px 50px 60px 40px; */
    border-radius: 8px;
    padding:20px 30px 30px 20px;
  }
@@ -169,14 +201,15 @@ input {
    height:1.5rem;
    font-size: 1.1rem;
    padding: .2rem;
-   margin-left: 4px;
+   margin-left: 14px;
    flex:1;
 }
 .form-row input {
    border:1px solid var(--color-border-gray);
    color:#444444;
 }
-.form-row input[type="text"]:focus {
+.form-row input[type="text"]:focus,
+.form-row input[type="text"]:active {
    outline:none;
    border:2px solid var(--color-hover-purple);
 }
@@ -198,15 +231,18 @@ input {
    border:4px solid var(--color-border-gray);
    padding:0;
    }
+.radio-row input:focus {
+   outline: none;
+   border:4px solid var(--color-hover-purple);
+}
 .radio-row input:checked {  
    background-image: url(check.svg),url(checkbox-blank-outline.svg);
    background-repeat: no-repeat;
    background-position:center center;
    background-size:30px 30px, 40px 40px;
+   border:4px solid var(--color-border-gray);
 }
-
 #submit-button{
    margin-left: 35px;
    font-size: 1rem;
-
 }
